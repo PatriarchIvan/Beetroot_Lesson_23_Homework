@@ -18,45 +18,61 @@
     & .gallery {
         display: grid;
         grid-template-columns: repeat(3, minmax(370px, auto));
-        grid-template-rows: repeat(3, 1fr);
-        gap: 30px;
+        gap: 15px;
 
         &__item {
             position: relative;
+            min-width: 370px;
+            min-height: 370px;
+            border-radius: 40px;
+            overflow: hidden;
 
-            &.item_normal {
-                grid-area: span / span / 1 / 1;
+            & .img__block {
+
+                &.text {
+                    position: absolute;
+                    width: 100%;
+                    bottom: 0;
+                    left: 0;
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 1.3vw;
+                    color: #E0E0E0;
+                    font-family: $textFontFamily;
+                    font-size: $textFontSize;
+                }
+
+                & .img {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    filter: brightness(0.3);
+                    transition: all 0.3s linear;
+                    overflow: hidden;
+    
+                    &:hover {
+                        cursor: pointer;
+                        filter: brightness(1);
+                    }
+                }
+    
             }
 
-            // &.item__block {
-            //     position: relative;
-            //     // padding-bottom: 70%;
-            //     & .img {
-            //         position: absolute;
-            //         top: 0;
-            //         left: 0;
-            //         width: 100%;
-            //     }
-            // }
-           
+            &.item_normal {
+                grid-area: span 1 / span 1;
+            }
+
             &.item_wide-col-right {
-                grid-column-start: 2;
-                grid-column-end: 4;
+                grid-column: 2 / 4;
             }
 
             &.item_wide-col-left {
-                grid-column-start: 1;
-                grid-column-end: 3;
+                grid-column: 1 / 3;
             }
-            
-            &.text {
-                display: flex;
-                justify-content: space-between;
-                position: relative;
-  
-                color: #fff;
-                font-family: $textFontFamily;
-                font-size: $textFontSize;
+            &.item_big {
+                grid-area: span 2 / span 2;
             }
         }
     }
