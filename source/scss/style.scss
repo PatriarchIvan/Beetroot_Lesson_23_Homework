@@ -53,13 +53,13 @@
                     filter: contrast(50%);
                     transition: all 0.3s linear;
                     overflow: hidden;
-    
+
                     &:hover {
                         cursor: pointer;
                         filter: contrast(100%);
                     }
                 }
-    
+
             }
 
             &.item_normal {
@@ -73,11 +73,14 @@
 
             &.item_big {
                 grid-area: span 2 / span 2;
+                min-width: 770px;
+                min-height: 770px;
             }
 
             &.item_wide-row {
                 grid-area: span 2 / span 1;
             }
+
         }
     }
 }
